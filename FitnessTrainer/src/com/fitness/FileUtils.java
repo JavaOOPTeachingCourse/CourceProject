@@ -90,13 +90,15 @@ public class FileUtils {
 
     }
 
-public static String [] parseStringLine (String text){
-    return text.split(DELIMITER_LINE);
-}
+    public static String[] parseStringLine(String text) {
+        return text.split(DELIMITER_LINE);
+    }
+
     public static String[] parseString(String text) {
         return text.split(DELIMITER);
     }
-    public static boolean checkLoadFile(){
+
+    public static boolean checkLoadFile() {
         return (exists("load.txt")) ? true : false;
     }
 

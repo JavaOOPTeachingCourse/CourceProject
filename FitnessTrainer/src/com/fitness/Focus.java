@@ -1,14 +1,15 @@
 package com.fitness;
+
 /**
  * Created by vmorozov on 23.05.2016.
  */
 public enum Focus {
-    FAT_OFF(-20,4, "похудеть"),
+    FAT_OFF(-20, 4, "похудеть"),
     STRENGTH_UP(+20, -2, "стать сильнее"),
     MUSCLE_GROWHT(0, 0, "нарастить мышцы");
-private int weightModFocus;
+    private int weightModFocus;
     private int repeatModFocus;
-private  String name;
+    private String name;
 
     Focus(int weightModFocus, int repeatModFocus, String name) {
         this.weightModFocus = weightModFocus;

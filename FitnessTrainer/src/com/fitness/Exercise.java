@@ -1,9 +1,9 @@
 package com.fitness;
 
 public enum Exercise {
-    ARM(40, 12, "руки"),
-    LEGS(120, 8, "ноги"),
-    BODY(100, 10, "тело");
+    ARM(40, 12, "ARM"),
+    LEGS(120, 8, "LEGS"),
+    BODY(100, 10, "BODY");
 
 
     private int weightModExercises;

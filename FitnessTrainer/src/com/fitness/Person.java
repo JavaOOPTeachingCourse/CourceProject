@@ -1,4 +1,5 @@
 package com.fitness;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -6,15 +7,29 @@ import java.util.List;
  * Created by vmorozov on 23.05.2016.
  */
 public class Person {
-    public Person() {
+    private String name;
+    private double weight;
+    private double persentFat;
+    private Focus focus;
+    private Expiriense expiriense;
+    private List<Exercise> exercise;
+    private List<Statistic> stat;
+
+    public List<Exercise> getExercise() {
+        return exercise;
     }
 
-    private String name;
-   private double weight;
-    private double persentFat;
-   private Focus focus;
-    private Expiriense expiriense;
-    private Exercise exercise;
+    public void setExercise(List<Exercise> exercise) {
+        this.exercise = exercise;
+    }
+
+    public List<Statistic> getStat() {
+        return stat;
+    }
+
+    public void setStat(List<Statistic> stat) {
+        this.stat = stat;
+    }
 
     public String getName() {
         return name;
@@ -56,16 +71,10 @@ public class Person {
         this.expiriense = expiriense;
     }
 
-    public Exercise getExercise() {
-        return exercise;
-    }
 
-    public void setExercise(Exercise exercise) {
-        this.exercise = exercise;
-    }
 
-    public void  weightExeption(){
-        if ((this.weight-this.weight*this.persentFat/100)<40){
+    public void weightExeption() {
+        if ((this.weight - this.weight * this.persentFat / 100) < 40) {
             System.out.println("Возможно вы указали неверный вес или процент жира. Мы не даем гарантии что результат правильный");
         }
 
@@ -73,7 +82,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return  "Привет " + name + " учитывая твое физическое состояние, то что ты "+ expiriense.getName()+
+        return "Привет " + name + " учитывая твое физическое состояние, то что ты " + expiriense.getName() +
                 ", и твое желание " + focus.getName() + "\n" +
                 ", мы рекомендуем выполнять выбранные тобой упражнения со следующей нагрузкой:";
     }
