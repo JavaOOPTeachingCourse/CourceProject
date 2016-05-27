@@ -9,10 +9,10 @@ public enum StatisticComparator implements Comparator<Statistic> {
     DATE_TIME {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getDateTime()>o2.getDateTime()){
+            if (o1.getDateTime() > o2.getDateTime()) {
                 return 1;
 
-            }else if(o1.getDateTime()<o2.getDateTime()){
+            } else if (o1.getDateTime() < o2.getDateTime()) {
                 return -1;
             }
             return 0;
@@ -21,10 +21,10 @@ public enum StatisticComparator implements Comparator<Statistic> {
     DATE_TIME_REVERS {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getDateTime()>o2.getDateTime()){
+            if (o1.getDateTime() > o2.getDateTime()) {
                 return -1;
 
-            }else if(o1.getDateTime()<o2.getDateTime()){
+            } else if (o1.getDateTime() < o2.getDateTime()) {
                 return 1;
             }
             return 0;
@@ -46,9 +46,9 @@ public enum StatisticComparator implements Comparator<Statistic> {
     EXERCISE_WEIGHT {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getExerciseWeight()>o2.getExerciseWeight()){
+            if (o1.getExerciseWeight() > o2.getExerciseWeight()) {
                 return 1;
-            }else if(o1.getExerciseWeight()<o2.getExerciseWeight()){
+            } else if (o1.getExerciseWeight() < o2.getExerciseWeight()) {
                 return -1;
             }
             return 0;
@@ -57,9 +57,9 @@ public enum StatisticComparator implements Comparator<Statistic> {
     EXERCISE_WEIGHT_REVERS {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getExerciseWeight()>o2.getExerciseWeight()){
+            if (o1.getExerciseWeight() > o2.getExerciseWeight()) {
                 return -1;
-            }else if(o1.getExerciseWeight()<o2.getExerciseWeight()){
+            } else if (o1.getExerciseWeight() < o2.getExerciseWeight()) {
                 return 1;
             }
             return 0;
@@ -68,21 +68,21 @@ public enum StatisticComparator implements Comparator<Statistic> {
     EXERCISE_COUNT {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            return (int) (o1.getExerciseCount()-o2.getExerciseCount());
+            return (int) (o1.getExerciseCount() - o2.getExerciseCount());
         }
     },
     EXERCISE_COUNT_REVERS {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            return (int) -1* (o1.getExerciseCount()-o2.getExerciseCount());
+            return (int) -1 * (o1.getExerciseCount() - o2.getExerciseCount());
         }
     },
     WORK {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getWork()>o2.getWork()){
+            if (o1.getWork() > o2.getWork()) {
                 return 1;
-            }else if(o1.getWork()<o2.getWork()){
+            } else if (o1.getWork() < o2.getWork()) {
                 return -1;
             }
             return 0;
@@ -91,9 +91,9 @@ public enum StatisticComparator implements Comparator<Statistic> {
     WORK_REVERS {
         @Override
         public int compare(Statistic o1, Statistic o2) {
-            if (o1.getWork()>o2.getWork()){
+            if (o1.getWork() > o2.getWork()) {
                 return -1;
-            }else if(o1.getWork()<o2.getWork()){
+            } else if (o1.getWork() < o2.getWork()) {
                 return 1;
             }
             return 0;
