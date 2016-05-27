@@ -1,7 +1,5 @@
 package com.fitness;
-/**
- * Created by vmorozov on 23.05.2016.
- */
+
 public enum Exercise {
     ARM(40, 12, "руки"),
     LEGS(120, 8, "ноги"),
