@@ -3,6 +3,7 @@ package com.fitness;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Created by vmorozov on 23.05.2016.
@@ -30,10 +31,51 @@ public class Runner {
             System.out.println(utils);
 
         }*/
-double test = 1.0123456789;
+/*double test = 1.0123456789;
         BigDecimal bd = new BigDecimal(test);
-        System.out.println(bd.setScale(2).doubleValue());
+        System.out.println(bd.setScale(2).doubleValue());*/
+        List<Person> list = generatePersonList();
+        list = generateExercise(list);
+        System.out.println("list = " + list);
+        for (Person person : list) {
+            System.out.println(Utils.calculateExercise(person));
+        }
+    }
+public static List<Person> generateExercise(List<Person> person){
+    List<Exercise> exercise = new ArrayList<Exercise>();
+    exercise.add(Exercise.ARM);
+    exercise.add(Exercise.BODY);
+    exercise.add(Exercise.LEGS);
+    for (Person pers : person) {
+        pers.setExercise(exercise);
+    }
+    return person;
+}
+    public static List<Person> generatePersonList() {
+        List<Person> result = new ArrayList<Person>();
+        Random rnd = new Random();
+        result.add(new Person("Alex", 25, rnd.nextInt(30)));
+        result.add(new Person("Bob", 20, rnd.nextInt(30)));
+        result.add(new Person("Jack", 55, rnd.nextInt(30)));
+        result.add(new Person("Franck", 35, rnd.nextInt(30)));
+        result.add(new Person("Hank", 42, rnd.nextInt(30)));
+        result.add(new Person("Walli", 49, rnd.nextInt(30)));
+        result.add(new Person("Wallter", 60, rnd.nextInt(30)));
+        result.add(new Person("Greg", 63, rnd.nextInt(30)));
+        result.add(new Person("Make", 23, rnd.nextInt(30)));
+        result.add(new Person("Lin", 37, rnd.nextInt(30)));
+        result.add(new Person("Lusy", 48, rnd.nextInt(30)));
+        result.add(new Person("Lincoln", 61, rnd.nextInt(30)));
+        result.add(new Person("Litle", 15, rnd.nextInt(30)));
+        result.add(new Person("Oren", 18, rnd.nextInt(30)));
+        result.add(new Person("Jordg", 22, rnd.nextInt(30)));
+        result.add(new Person("Noi", 90, rnd.nextInt(30)));
+        result.add(new Person("Asus", 49, rnd.nextInt(30)));
+        result.add(new Person("Lol", 87, rnd.nextInt(30)));
+        result.add(new Person("Kkkk", 27, rnd.nextInt(30)));
+        result.add(new Person("Piter", 27, rnd.nextInt(30)));
 
+        return result;
     }
 }
 

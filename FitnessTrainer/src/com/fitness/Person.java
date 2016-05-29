@@ -1,6 +1,6 @@
 package com.fitness;
 
-import java.util.ArrayList;
+import java.util.Random;
 import java.util.List;
 
 /**
@@ -14,6 +14,39 @@ public class Person {
     private Expiriense expiriense;
     private List<Exercise> exercise;
     private List<Statistic> stat;
+
+    public Person(String name, double weight, double persentFat) {
+        this.name = name;
+        this.weight = weight;
+        this.persentFat = persentFat;
+        Random rnd = new Random();
+        switch (rnd.nextInt(3)) {
+            case 0:
+                this.setFocus(Focus.FAT_OFF);
+                break;
+            case 1:
+                this.setFocus(Focus.MUSCLE_GROWHT);
+                break;
+            case 2:
+                this.setFocus(Focus.STRENGTH_UP);
+                break;
+            default:
+                this.setFocus(Focus.FAT_OFF);
+        }
+        switch (rnd.nextInt(3)) {
+            case 0:
+                this.setExpiriense(Expiriense.BEGINNER);
+                break;
+            case 1:
+                this.setExpiriense(Expiriense.EXPERT);
+                break;
+            case 2:
+                this.setExpiriense(Expiriense.PROFESSIONAL);
+                break;
+            default:
+                this.setExpiriense(Expiriense.BEGINNER);
+        }
+    }
 
     public List<Exercise> getExercise() {
         return exercise;
@@ -72,7 +105,6 @@ public class Person {
     }
 
 
-
     public void weightExeption() {
         if ((this.weight - this.weight * this.persentFat / 100) < 40) {
             System.out.println("Возможно вы указали неверный вес или процент жира. Мы не даем гарантии что результат правильный");
@@ -80,10 +112,23 @@ public class Person {
 
     }
 
-    @Override
+    /*@Override
     public String toString() {
         return "Привет " + name + " учитывая твое физическое состояние, то что ты " + expiriense.getName() +
                 ", и твое желание " + focus.getName() + "\n" +
                 ", мы рекомендуем выполнять выбранные тобой упражнения со следующей нагрузкой:";
+    }*/
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "name='" + name + '\'' +
+                ", weight=" + weight +
+                ", persentFat=" + persentFat +
+                ", focus=" + focus +
+                ", expiriense=" + expiriense +
+                ", exercise=" + exercise +
+                ", stat=" + stat +
+                '}' + '\n';
     }
 }
