@@ -16,16 +16,20 @@ public class Statistic {
         this.dateTime = dateTime;
         this.exerciseWeight = exerciseWeight;
         this.exerciseCount = exerciseCount;
-        this.work=exerciseWeight*exerciseCount;
+        this.work = exerciseWeight * exerciseCount;
         Random rnd = new Random();
-        switch (rnd.nextInt(3)){
-            case 0: this.typeOfExercise=Exercise.ARM;
+        switch (rnd.nextInt(3)) {
+            case 0:
+                this.typeOfExercise = Exercise.ARM;
                 break;
-            case 1: this.typeOfExercise=Exercise.BODY;
+            case 1:
+                this.typeOfExercise = Exercise.BODY;
                 break;
-            case 2: this.typeOfExercise=Exercise.LEGS;
+            case 2:
+                this.typeOfExercise = Exercise.LEGS;
                 break;
-            default: this.typeOfExercise=Exercise.ARM;
+            default:
+                this.typeOfExercise = Exercise.ARM;
         }
     }
 
@@ -72,11 +76,11 @@ public class Statistic {
     @Override
     public String toString() {
         return "Statistic{" +
-                "dateTime=" + Utils.getDate(dateTime,"dd.MM.yyyy") +
+                "dateTime=" + Utils.getDate(dateTime, "dd.MM.yyyy") +
                 ", typeOfExercise=" + typeOfExercise +
                 ", exerciseWeight=" + exerciseWeight +
                 ", exerciseCount=" + exerciseCount +
                 ", work=" + work +
-                '}'+'\n';
+                '}' + '\n';
     }
 }

@@ -142,6 +142,7 @@ public class StatisticPredicate {
         };
 
     }
+
     public static List<Statistic> filter(List<Statistic> notFiltered, Predicate<Statistic> predicate) {
         List<Statistic> result = new ArrayList<Statistic>();
         for (Statistic stat : notFiltered) {
