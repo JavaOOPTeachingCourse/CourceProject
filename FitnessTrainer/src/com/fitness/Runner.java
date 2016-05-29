@@ -1,5 +1,6 @@
 package com.fitness;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +30,9 @@ public class Runner {
             System.out.println(utils);
 
         }*/
-
+double test = 1.0123456789;
+        BigDecimal bd = new BigDecimal(test);
+        System.out.println(bd.setScale(2).doubleValue());
 
     }
 }
