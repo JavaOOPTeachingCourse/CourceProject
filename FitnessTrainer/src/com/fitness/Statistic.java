@@ -72,11 +72,11 @@ public class Statistic {
     @Override
     public String toString() {
         return "Statistic{" +
-                "dateTime=" + dateTime +
+                "dateTime=" + Utils.getDate(dateTime,"dd.MM.yyyy") +
                 ", typeOfExercise=" + typeOfExercise +
                 ", exerciseWeight=" + exerciseWeight +
                 ", exerciseCount=" + exerciseCount +
                 ", work=" + work +
-                '}';
+                '}'+'\n';
     }
 }

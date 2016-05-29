@@ -1,6 +1,8 @@
 package com.fitness;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Predicate;
 
 /**
@@ -139,5 +141,14 @@ public class StatisticPredicate {
             }
         };
 
+    }
+    public static List<Statistic> filter(List<Statistic> notFiltered, Predicate<Statistic> predicate) {
+        List<Statistic> result = new ArrayList<Statistic>();
+        for (Statistic stat : notFiltered) {
+            if (predicate.test(stat)) {
+                result.add(stat);
+            }
+        }
+        return result;
     }
 }

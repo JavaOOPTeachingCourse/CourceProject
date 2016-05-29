@@ -2,6 +2,7 @@ package com.fitness;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
@@ -16,10 +17,23 @@ public class Runner {
         List<Person> list = generatePersonList();
         list = generateExercise(list);
         list = generateStatistic(list);
-        System.out.println("list = " + list);
+        //System.out.println("list = " + list);
         /*for (Person person : list) {
             System.out.println(Utils.calculateExercise(person));
         }*/
+//Example calculate exercise for person[0]
+        System.out.println(Utils.calculateExercise(list.get(0)));
+
+        //Example sorting statistic for person[0]
+       List<Statistic> sortedStatistic = list.get(0).getStat();
+        Collections.sort(sortedStatistic,StatisticComparator.getComparator(StatisticComparator.DATE_TIME,StatisticComparator.TYPE_OF_EXERCISE));
+        System.out.println("sortedStatistic = " + sortedStatistic);
+
+        //Example filtering for person[0]
+        List<Statistic> filteredStatistic =StatisticPredicate.filter(list.get(0).getStat(),StatisticPredicate.dateMoreThen(Utils.getTime("dd.MM.yyyy","25.05.2016")).and(StatisticPredicate.exerciseWeightMoreThen(20.)));
+        System.out.println("filteredStatistic = " + filteredStatistic);
+
+
     }
 public static List<Person> generateExercise(List<Person> person){
     List<Exercise> exercise = new ArrayList<Exercise>();
