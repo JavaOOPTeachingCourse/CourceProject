@@ -1,12 +1,13 @@
 package com.fitness;
 
+import java.io.Serializable;
 import java.util.Random;
 import java.util.List;
 
 /**
  * Created by vmorozov on 23.05.2016.
  */
-public class Person {
+public class Person implements Serializable{
     private String name;
     private double weight;
     private double persentFat;

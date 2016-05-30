@@ -1,6 +1,8 @@
 package com.fitness;
 
-public enum Exercise {
+import java.io.Serializable;
+
+public enum Exercise implements Serializable{
     ARM(40, 12, "ARM"),
     LEGS(120, 8, "LEGS"),
     BODY(100, 10, "BODY");

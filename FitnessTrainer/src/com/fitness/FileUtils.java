@@ -10,12 +10,53 @@ import java.util.List;
 public class FileUtils {
     private static final String DELIMITER = "\\|";
     private static final String DELIMITER_LINE = "\\\n";
+    private static final String FILENAME="state.txt";
 
     public static boolean checkName(String name) {
         return exists(name);
 
     }
+    public static List<Person> loadState(){
+        ObjectInputStream in = null;
+        List<Person> result = new ArrayList<Person>();
+        try {
+            in = new ObjectInputStream(new FileInputStream(FILENAME));
+            while (in.available()!=0){
+                try {
+                    result.add((Person)in.readObject());
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                in.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return result;
+    }
+public static void saveState(List<Person> person){
+    ObjectOutputStream out = null;
+    for (Person person1 : person) {
+        try {
+            out =new ObjectOutputStream(new FileOutputStream(FILENAME));
+            out.writeObject(person1);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                out.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
+}
     public static void updateFile(String fileName, String text) {
         exists(fileName);
         StringBuilder sb = new StringBuilder();

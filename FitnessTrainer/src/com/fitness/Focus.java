@@ -1,9 +1,11 @@
 package com.fitness;
 
+import java.io.Serializable;
+
 /**
  * Created by vmorozov on 23.05.2016.
  */
-public enum Focus {
+public enum Focus implements Serializable{
     FAT_OFF(-20, 4, "похудеть"),
     STRENGTH_UP(+20, -2, "стать сильнее"),
     MUSCLE_GROWHT(0, 0, "нарастить мышцы");

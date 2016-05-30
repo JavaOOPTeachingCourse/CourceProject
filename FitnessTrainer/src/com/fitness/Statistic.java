@@ -1,11 +1,12 @@
 package com.fitness;
 
+import java.io.Serializable;
 import java.util.Random;
 
 /**
  * Created by Z on 5/27/2016.
  */
-public class Statistic {
+public class Statistic implements Serializable{
     private long dateTime;
     private Exercise typeOfExercise;
     private double exerciseWeight;

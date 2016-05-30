@@ -1,9 +1,11 @@
 package com.fitness;
 
+import java.io.Serializable;
+
 /**
  * Created by vmorozov on 23.05.2016.
  */
-public enum Expiriense {
+public enum Expiriense implements Serializable{
     BEGINNER(-20, -2, "новичок"),
     PROFESSIONAL(0, 0, "профессионал"),
     EXPERT(20, 2, "эксперт");
