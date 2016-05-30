@@ -10,32 +10,33 @@ import java.util.List;
 public class FileUtils {
     private static final String DELIMITER = "\\|";
     private static final String DELIMITER_LINE = "\\\n";
-    private static final String FILENAME="state.txt";
+    private static final String FILENAME = "state.txt";
 
     public static boolean checkName(String name) {
         return exists(name);
 
     }
-    public static List<Person> loadState(){
+
+    public static List<Person> loadState() {
         ObjectInputStream in = null;
-        boolean whileReason =true;
+        boolean whileReason = true;
         List<Person> result = new ArrayList<Person>();
         try {
             in = new ObjectInputStream(new FileInputStream(FILENAME));
             System.out.println(in.available());
-            while (whileReason){
+            while (whileReason) {
                 try {
-                    result=(List)in.readObject();
+                    result = (List) in.readObject();
                 } catch (ClassNotFoundException e) {
 
                     e.printStackTrace();
-                }catch (EOFException eof){
-                    whileReason=false;
+                } catch (EOFException eof) {
+                    whileReason = false;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } finally {
             try {
                 in.close();
             } catch (IOException e) {
@@ -44,10 +45,11 @@ public class FileUtils {
         }
         return result;
     }
-public static void saveState(List<Person> person){
-    ObjectOutputStream out = null;
-            try {
-            out =new ObjectOutputStream(new FileOutputStream(FILENAME));
+
+    public static void saveState(List<Person> person) {
+        ObjectOutputStream out = null;
+        try {
+            out = new ObjectOutputStream(new FileOutputStream(FILENAME));
             out.writeObject(person);
 
         } catch (IOException e) {
@@ -61,7 +63,8 @@ public static void saveState(List<Person> person){
         }
 
 
-}
+    }
+
     public static void updateFile(String fileName, String text) {
         exists(fileName);
         StringBuilder sb = new StringBuilder();
@@ -148,16 +151,6 @@ public static void saveState(List<Person> person){
         return (exists("load.txt")) ? true : false;
     }
 
-    /*public static List<Person> loadData(){
-        List<Person> result = new ArrayList<Person>();
-        String data =readFromFile("load.txt");
-        String [] parsedData = parseStringLine(data);
-        for (String s : parsedData) {
-            String [] parsedDataLine = s.split(DELIMITER);
-            result.add(new Person().);
-        }
-        return;
-    }*/
 
     public static void main(String[] args) {
         System.out.println(checkName("alex"));
