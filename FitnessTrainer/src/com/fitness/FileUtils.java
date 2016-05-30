@@ -18,14 +18,19 @@ public class FileUtils {
     }
     public static List<Person> loadState(){
         ObjectInputStream in = null;
+        boolean whileReason =true;
         List<Person> result = new ArrayList<Person>();
         try {
             in = new ObjectInputStream(new FileInputStream(FILENAME));
-            while (in.available()!=0){
+            System.out.println(in.available());
+            while (whileReason){
                 try {
-                    result.add((Person)in.readObject());
+                    result=(List)in.readObject();
                 } catch (ClassNotFoundException e) {
+
                     e.printStackTrace();
+                }catch (EOFException eof){
+                    whileReason=false;
                 }
             }
         } catch (IOException e) {
@@ -41,10 +46,10 @@ public class FileUtils {
     }
 public static void saveState(List<Person> person){
     ObjectOutputStream out = null;
-    for (Person person1 : person) {
-        try {
+            try {
             out =new ObjectOutputStream(new FileOutputStream(FILENAME));
-            out.writeObject(person1);
+            out.writeObject(person);
+
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
@@ -54,7 +59,7 @@ public static void saveState(List<Person> person){
                 e.printStackTrace();
             }
         }
-    }
+
 
 }
     public static void updateFile(String fileName, String text) {

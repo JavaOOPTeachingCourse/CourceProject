@@ -14,10 +14,11 @@ public class Runner {
 
     public static void main(String[] args) {
 
-
+        List<Person> list = FileUtils.loadState();
         /*List<Person> list = generatePersonList();
         list = generateExercise(list);
         list = generateStatistic(list);
+        FileUtils.saveState(list);*/
         //System.out.println("list = " + list);
 
         //Example calculate exercise for person[0]
@@ -30,10 +31,9 @@ public class Runner {
 
         //Example filtering for person[0]
         List<Statistic> filteredStatistic = StatisticPredicate.filter(list.get(0).getStat(), StatisticPredicate.dateMoreThen(Utils.getTime("dd.MM.yyyy", "25.05.2016")).and(StatisticPredicate.exerciseWeightMoreThen(20.)));
-        System.out.println("filteredStatistic = " + filteredStatistic);*/
-        //FileUtils.saveState(list);
-        List<Person> list = FileUtils.loadState();
-        System.out.println("list = " + list);
+        System.out.println("filteredStatistic = " + filteredStatistic);
+        FileUtils.saveState(list);
+
 
 
     }
