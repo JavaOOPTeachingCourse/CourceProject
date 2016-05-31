@@ -5,9 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 
-import static com.fitness.Utils.generateExercise;
-import static com.fitness.Utils.generatePersonList;
-import static com.fitness.Utils.generateStatistic;
 
 
 public class Runner {
