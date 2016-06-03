@@ -8,9 +8,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Random;
 
-/**
- * Created by vmorozov on 23.05.2016.
- */
+
 public class Utils {
 
     public static String calculateExercise(Person person) {
@@ -56,31 +54,131 @@ public class Utils {
     }
 
     public static List<Person> generateStatistic(List<Person> person) {
-        List<Statistic> stat = new ArrayList<Statistic>();
+        List<Statistic> result = new ArrayList<Statistic>();
         Random rnd = new Random();
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "01.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "03.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "05.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "07.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "09.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "11.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "13.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "15.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "17.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "18.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "21.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "22.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "24.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "26.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "27.05.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "25.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "23.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "21.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "19.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "17.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
-        stat.add(new Statistic(Utils.getTime("dd.MM.yyyy", "15.04.2016"), rnd.nextInt(60), rnd.nextInt(20)));
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "01.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "03.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "05.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "07.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "09.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "11.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "13.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "15.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "17.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "18.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "21.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "22.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "24.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "26.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "27.05.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "25.04.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "23.04.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "21.04.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "19.04.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+        result.add(new Statistic().setDateTime(Utils.getTime("dd.MM.yyyy", "17.04.2016"))
+                .setExerciseWeight(rnd.nextInt(60))
+                .setExerciseCount(rnd.nextInt(20))
+                .setTypeOfExercise(Statistic.valueOf(rnd.nextInt(3)))
+                .setWork());
+
+
         for (Person person1 : person) {
-            person1.setStat(stat);
+            person1.setStat(result);
         }
         return person;
     }
@@ -88,26 +186,148 @@ public class Utils {
     public static List<Person> generatePersonList() {
         List<Person> result = new ArrayList<Person>();
         Random rnd = new Random();
-        result.add(new Person("Alex", 25, rnd.nextInt(30)));
-        result.add(new Person("Bob", 20, rnd.nextInt(30)));
-        result.add(new Person("Jack", 55, rnd.nextInt(30)));
-        result.add(new Person("Franck", 35, rnd.nextInt(30)));
-        result.add(new Person("Hank", 42, rnd.nextInt(30)));
-        result.add(new Person("Walli", 49, rnd.nextInt(30)));
-        result.add(new Person("Wallter", 60, rnd.nextInt(30)));
-        result.add(new Person("Greg", 63, rnd.nextInt(30)));
-        result.add(new Person("Make", 23, rnd.nextInt(30)));
-        result.add(new Person("Lin", 37, rnd.nextInt(30)));
-        result.add(new Person("Lusy", 48, rnd.nextInt(30)));
-        result.add(new Person("Lincoln", 61, rnd.nextInt(30)));
-        result.add(new Person("Litle", 15, rnd.nextInt(30)));
-        result.add(new Person("Oren", 18, rnd.nextInt(30)));
-        result.add(new Person("Jordg", 22, rnd.nextInt(30)));
-        result.add(new Person("Noi", 90, rnd.nextInt(30)));
-        result.add(new Person("Asus", 49, rnd.nextInt(30)));
-        result.add(new Person("Lol", 87, rnd.nextInt(30)));
-        result.add(new Person("Kkkk", 27, rnd.nextInt(30)));
-        result.add(new Person("Piter", 27, rnd.nextInt(30)));
+
+        result.add(new Person()
+                .setName("Alex")
+                .setWeight(25.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Bob")
+                .setWeight(20.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Jack")
+                .setWeight(55.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Franck")
+                .setWeight(35.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Hank")
+                .setWeight(42.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Walli")
+                .setWeight(49.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Wallter")
+                .setWeight(60.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Greg")
+                .setWeight(63.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Make")
+                .setWeight(23.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Lin")
+                .setWeight(37.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Lusy")
+                .setWeight(48.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Lincoln")
+                .setWeight(61.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Litle")
+                .setWeight(15.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Oren")
+                .setWeight(18.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Jordg")
+                .setWeight(22.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Noi")
+                .setWeight(90.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Asus")
+                .setWeight(49.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Lol")
+                .setWeight(87.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Kkkk")
+                .setWeight(27.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+        result.add(new Person()
+                .setName("Piter")
+                .setWeight(27.)
+                .setPersentFat(rnd.nextInt(30))
+                .setExpiriense(Expiriense.valueOf(rnd.nextInt(3)))
+                .setFocus(Focus.valueOf(rnd.nextInt(3))));
+
+
 
         return result;
     }

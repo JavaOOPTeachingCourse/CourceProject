@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by vmorozov on 23.05.2016.
  */
-public enum Focus implements Serializable{
+public enum Focus implements Serializable {
     FAT_OFF(-20, 4, "похудеть"),
     STRENGTH_UP(+20, -2, "стать сильнее"),
     MUSCLE_GROWHT(0, 0, "нарастить мышцы");
@@ -41,5 +41,21 @@ public enum Focus implements Serializable{
 
     public void setWeightModFocus(int weightModFocus) {
         this.weightModFocus = weightModFocus;
+    }
+
+    public static Focus valueOf(int value) {
+        switch (value) {
+            case 0:
+                return Focus.FAT_OFF;
+
+            case 1:
+                return Focus.MUSCLE_GROWHT;
+
+            case 2:
+                return Focus.STRENGTH_UP;
+
+            default:
+                return Focus.FAT_OFF;
+        }
     }
 }
