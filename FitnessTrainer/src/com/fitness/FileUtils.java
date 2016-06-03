@@ -8,6 +8,7 @@ import java.util.List;
 
 public class FileUtils {
     public static final String DELIMITER = "|";
+    public static final String DELIMITER_REVERS="\\|";
     private static final String DELIMITER_LINE = "\\\n";
     private static final String FILENAME = "state.txt";
 
@@ -172,15 +173,22 @@ public class FileUtils {
         String line;
         Person person = new Person();
         while ((line = reader.readLine()) != null) {
+
             switch (checkTypeOfString(line)) {
                 case "Person":
                     person = addPerson(line,person);
+                    System.out.println("case person");
+                    System.out.println(person);
                     break;
                 case "Exercise":
                     person = addExerciseToPerson(line, person);
+                    System.out.println("case exercise");
+                    System.out.println(person);
                     break;
                 case "Statistic":
                     person = addStatisticToPerson(line, person);
+                    System.out.println("case statistic");
+                    System.out.println(person);
                     break;
                 case "": result.add(person);
                     break;
@@ -225,21 +233,21 @@ public class FileUtils {
     }
 
     private static String[] parseStatistic(String line) {
-        return line.split(FileUtils.DELIMITER);
+        return line.split(FileUtils.DELIMITER_REVERS);
     }
 
     private static String[] parseExercise(String line) {
 
-        return line.split(FileUtils.DELIMITER);
+        return line.split(FileUtils.DELIMITER_REVERS);
     }
 
     private static String[] parsePerson(String line) {
 
-        return line.split(FileUtils.DELIMITER);
+        return line.split(FileUtils.DELIMITER_REVERS);
     }
 
     private static String checkTypeOfString(String line) {
-        String[] result = line.split(FileUtils.DELIMITER);
+        String[] result = line.split(FileUtils.DELIMITER_REVERS);
         return result[0];
     }
 

@@ -30,9 +30,10 @@ public class Runner {
 
         //Load Persons list from file
         try {
+            System.out.println("---------------------------------------------------------");
             List<Person> listReadFromFile = FileUtils.readPersonsFromFile("persons.csv");
             System.out.println("---------------------------------------------------------");
-            System.out.println(listReadFromFile);
+            //System.out.println(listReadFromFile);
         } catch (IOException e) {
             e.printStackTrace();
         }
