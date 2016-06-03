@@ -13,65 +13,66 @@ public class Statistic implements Serializable{
     private int exerciseCount;
     private double work;
 
-    public Statistic(long dateTime, double exerciseWeight, int exerciseCount) {
-        this.dateTime = dateTime;
-        this.exerciseWeight = exerciseWeight;
-        this.exerciseCount = exerciseCount;
-        this.work = exerciseWeight * exerciseCount;
-        Random rnd = new Random();
-        switch (rnd.nextInt(3)) {
-            case 0:
-                this.typeOfExercise = Exercise.ARM;
-                break;
-            case 1:
-                this.typeOfExercise = Exercise.BODY;
-                break;
-            case 2:
-                this.typeOfExercise = Exercise.LEGS;
-                break;
-            default:
-                this.typeOfExercise = Exercise.ARM;
-        }
-    }
+
 
     public long getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(long dateTime) {
+    public Statistic setDateTime(long dateTime) {
         this.dateTime = dateTime;
+        return this;
     }
 
     public Exercise getTypeOfExercise() {
         return typeOfExercise;
     }
 
-    public void setTypeOfExercise(Exercise typeOfExercise) {
+    public Statistic setTypeOfExercise(Exercise typeOfExercise) {
         this.typeOfExercise = typeOfExercise;
+        return this;
     }
 
     public double getExerciseWeight() {
         return exerciseWeight;
     }
 
-    public void setExerciseWeight(double exerciseWeight) {
+    public Statistic setExerciseWeight(double exerciseWeight) {
         this.exerciseWeight = exerciseWeight;
+        return this;
     }
 
     public int getExerciseCount() {
         return exerciseCount;
     }
 
-    public void setExerciseCount(int exerciseCount) {
+    public Statistic setExerciseCount(int exerciseCount) {
         this.exerciseCount = exerciseCount;
+        return this;
     }
 
     public double getWork() {
         return work;
     }
 
-    public void setWork(double work) {
-        this.work = work;
+    public Statistic setWork() {
+        this.work = exerciseWeight*exerciseCount;
+        return this;
+    }
+    public static Exercise valueOf (int value){
+        switch (value) {
+            case 0:
+                return Exercise.ARM;
+
+            case 1:
+                return Exercise.BODY;
+
+            case 2:
+                return Exercise.LEGS;
+
+            default:
+                return Exercise.ARM;
+        }
     }
 
     @Override

@@ -43,4 +43,19 @@ public enum Expiriense implements Serializable{
     public void setRepeatModExpiriense(int repeatModExpiriense) {
         this.repeatModExpiriense = repeatModExpiriense;
     }
+    public static Expiriense valueOf (int value){
+        switch (value) {
+            case 0:
+                return Expiriense.BEGINNER;
+
+            case 1:
+                return Expiriense.EXPERT;
+
+            case 2:
+                return Expiriense.PROFESSIONAL;
+
+            default:
+                return Expiriense.BEGINNER;
+        }
+    }
 }
