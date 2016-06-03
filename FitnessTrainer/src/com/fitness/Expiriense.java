@@ -58,4 +58,14 @@ public enum Expiriense implements Serializable{
                 return Expiriense.BEGINNER;
         }
     }
-}
+    public static Expiriense valueOfString (String value){
+        Expiriense result=null;
+        switch (value){
+            case "BEGINNER": result= Expiriense.BEGINNER;
+            case "PROFESSIONAL" : result= Expiriense.PROFESSIONAL;
+            case "EXPERT": result= Expiriense.EXPERT;
+        }
+        return result;
+    }
+    }
+

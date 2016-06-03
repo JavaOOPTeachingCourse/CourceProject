@@ -43,7 +43,7 @@ public enum Focus implements Serializable {
         this.weightModFocus = weightModFocus;
     }
 
-    public static Focus valueOf(int value) {
+    public  static Focus valueOf(int value) {
         switch (value) {
             case 0:
                 return Focus.FAT_OFF;
@@ -57,5 +57,15 @@ public enum Focus implements Serializable {
             default:
                 return Focus.FAT_OFF;
         }
+    }
+
+    public  static Focus valueOfString (String value){
+        Focus result=null;
+        switch (value){
+            case "MUSCLE_GROWHT": result= Focus.MUSCLE_GROWHT;
+            case "STRENGTH_UP" : result= Focus.STRENGTH_UP;
+            case "FAT_OFF": result= Focus.FAT_OFF;
+        }
+    return result;
     }
 }

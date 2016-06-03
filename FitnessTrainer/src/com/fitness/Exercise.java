@@ -53,6 +53,15 @@ public enum Exercise implements Serializable{
 return sb.toString();
     }
 
+public static Exercise valueOfString(String value){
+    Exercise result = null;
+    switch (value){
+        case "ARM": result = Exercise.ARM;
+        case "LEGS" : result = Exercise.LEGS;
+        case "BODY" : result = Exercise.BODY;
+    }
+    return result;
+}
 
 }
 

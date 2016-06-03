@@ -3,7 +3,6 @@ package com.fitness;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
 
 
@@ -151,14 +150,97 @@ public class FileUtils {
         return (exists("load.txt")) ? true : false;
     }
 
-    public static void writePersonsToFile(List<Person> list,String fileName) throws IOException {
-        try(PrintWriter writer = new PrintWriter(new FileWriter(fileName))){
+    public static void writePersonsToFile(List<Person> list, String fileName) throws IOException {
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName))) {
             for (Person person : list) {
-                writePerson(person,writer);
-                writeExercise(person,writer);
-                writeStatistics(person,writer);
+                writePerson(person, writer);
+                writeExercise(person, writer);
+                writeStatistics(person, writer);
             }
         }
+    }
+
+    public static List<Person> readPersonsFromFile(String fileName) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            return readPersons(reader);
+        }
+
+    }
+
+    private static List<Person> readPersons(BufferedReader reader) throws IOException {
+        List<Person> result = new ArrayList<Person>();
+        String line;
+        Person person = new Person();
+        while ((line = reader.readLine()) != null) {
+            switch (checkTypeOfString(line)) {
+                case "Person":
+                    person = addPerson(line,person);
+                    break;
+                case "Exercise":
+                    person = addExerciseToPerson(line, person);
+                    break;
+                case "Statistic":
+                    person = addStatisticToPerson(line, person);
+                    break;
+                case "": result.add(person);
+                    break;
+            }
+
+
+
+        }
+        return result;
+    }
+
+    private static Person addStatisticToPerson(String line, Person person) {
+        String [] temp = parseStatistic(line);
+        List<Statistic> list = new ArrayList<Statistic>();
+        list.add(new Statistic()
+                .setDateTime(Long.valueOf(temp[1]))
+                .setTypeOfExercise(Exercise.valueOfString(temp[2]))
+                .setExerciseWeight(Double.valueOf(temp[3]))
+                .setExerciseCount(Integer.valueOf(temp[4])).setWork());
+        return person.setStat(list);
+    }
+
+    private static Person addExerciseToPerson(String line, Person person) {
+        String[] temp = parseExercise(line);
+        List<Exercise> list = new ArrayList<Exercise>();
+
+        for (String s : temp) {
+            list.add(Exercise.valueOfString(s));
+        }
+        return person.setExercise(list);
+    }
+
+    private static Person addPerson(String line, Person person) {
+        String[] temp = parsePerson(line);
+        person
+                .setName(temp[1])
+                .setWeight(Double.valueOf(temp[2]))
+                .setPersentFat(Double.valueOf(temp[3]))
+                .setFocus(Focus.valueOfString(temp[4])).setExpiriense(Expiriense.valueOfString(temp[5]));
+
+        return person;
+    }
+
+    private static String[] parseStatistic(String line) {
+        return line.split(FileUtils.DELIMITER);
+    }
+
+    private static String[] parseExercise(String line) {
+
+        return line.split(FileUtils.DELIMITER);
+    }
+
+    private static String[] parsePerson(String line) {
+
+        return line.split(FileUtils.DELIMITER);
+    }
+
+    private static String checkTypeOfString(String line) {
+        String[] result = line.split(FileUtils.DELIMITER);
+        return result[0];
     }
 
     private static void writeStatistics(Person person, PrintWriter writer) {

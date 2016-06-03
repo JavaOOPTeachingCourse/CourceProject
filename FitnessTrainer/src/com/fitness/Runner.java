@@ -21,12 +21,22 @@ public class Runner {
         //Print Person list
         System.out.println(list);
 
-        //Write Persons list to file in
+        //Write Persons list to file
         try {
             FileUtils.writePersonsToFile(list,"persons.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        //Load Persons list from file
+        try {
+            List<Person> listReadFromFile = FileUtils.readPersonsFromFile("persons.csv");
+            System.out.println("---------------------------------------------------------");
+            System.out.println(listReadFromFile);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
 
 
         //List<Person> list = FileUtils.loadState();
