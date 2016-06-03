@@ -8,7 +8,7 @@ import java.util.List;
 
 
 public class FileUtils {
-    private static final String DELIMITER = "\\|";
+    public static final String DELIMITER = "|";
     private static final String DELIMITER_LINE = "\\\n";
     private static final String FILENAME = "state.txt";
 
@@ -149,6 +149,28 @@ public class FileUtils {
 
     public static boolean checkLoadFile() {
         return (exists("load.txt")) ? true : false;
+    }
+
+    public static void writePersonsToFile(List<Person> list,String fileName) throws IOException {
+        try(PrintWriter writer = new PrintWriter(new FileWriter(fileName))){
+            for (Person person : list) {
+                writePerson(person,writer);
+                writeExercise(person,writer);
+                writeStatistics(person,writer);
+            }
+        }
+    }
+
+    private static void writeStatistics(Person person, PrintWriter writer) {
+        writer.println(Statistic.toCSV(person.getStat()));
+    }
+
+    private static void writeExercise(Person person, PrintWriter writer) {
+        writer.println(Exercise.toCSV(person.getExercise()));
+    }
+
+    private static void writePerson(Person person, PrintWriter writer) {
+        writer.println(person.toCSV());
     }
 
 

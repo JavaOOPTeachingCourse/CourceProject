@@ -1,18 +1,21 @@
 package com.fitness;
 
+import java.io.File;
 import java.io.Serializable;
+import java.io.StringReader;
+import java.util.List;
 import java.util.Random;
 
 /**
  * Created by Z on 5/27/2016.
  */
-public class Statistic implements Serializable{
+public class Statistic implements Serializable {
     private long dateTime;
     private Exercise typeOfExercise;
     private double exerciseWeight;
     private int exerciseCount;
     private double work;
-
+    private static final String TYPE = "Statistic";
 
 
     public long getDateTime() {
@@ -56,10 +59,11 @@ public class Statistic implements Serializable{
     }
 
     public Statistic setWork() {
-        this.work = exerciseWeight*exerciseCount;
+        this.work = exerciseWeight * exerciseCount;
         return this;
     }
-    public static Exercise valueOf (int value){
+
+    public static Exercise valueOf(int value) {
         switch (value) {
             case 0:
                 return Exercise.ARM;
@@ -73,6 +77,20 @@ public class Statistic implements Serializable{
             default:
                 return Exercise.ARM;
         }
+    }
+
+    public static String toCSV(List<Statistic> list) {
+        StringBuilder sb = new StringBuilder();
+
+        for (Statistic statistic : list) {
+            sb.append(TYPE+FileUtils.DELIMITER+
+                    statistic.getDateTime()+FileUtils.DELIMITER+
+            statistic.getTypeOfExercise()+FileUtils.DELIMITER+
+            statistic.getExerciseWeight()+FileUtils.DELIMITER+
+            statistic.getExerciseCount()+FileUtils.DELIMITER+
+            statistic.getWork()+'\n');
+        }
+return sb.toString();
     }
 
     @Override

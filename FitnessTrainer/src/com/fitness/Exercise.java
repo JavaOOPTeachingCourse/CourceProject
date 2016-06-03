@@ -1,6 +1,7 @@
 package com.fitness;
 
 import java.io.Serializable;
+import java.util.List;
 
 public enum Exercise implements Serializable{
     ARM(40, 12, "ARM"),
@@ -11,6 +12,7 @@ public enum Exercise implements Serializable{
     private int weightModExercises;
     private int repeatModExercises;
     private String name;
+    private static final String TYPE="Exercise";
 
 
     Exercise(int weightModExercises, int repeatModExercises, String name) {
@@ -41,6 +43,14 @@ public enum Exercise implements Serializable{
 
     public void setRepeatModExercises(int repeatModExercises) {
         this.repeatModExercises = repeatModExercises;
+    }
+    public static String toCSV (List<Exercise> list){
+        StringBuilder sb = new StringBuilder();
+        sb.append(TYPE+FileUtils.DELIMITER);
+        for (Exercise exercise : list) {
+            sb.append(exercise.getName()+FileUtils.DELIMITER);
+        }
+return sb.toString();
     }
 
 
