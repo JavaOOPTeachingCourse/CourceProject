@@ -10,7 +10,7 @@ public class FileUtils {
     public static final String DELIMITER = "|";
     public static final String DELIMITER_REVERS="\\|";
     private static final String DELIMITER_LINE = "\\\n";
-    private static final String FILENAME = "state.txt";
+    private static final String FILENAME = "state.ini";
 
     public static boolean checkName(String name) {
         return exists(name);
