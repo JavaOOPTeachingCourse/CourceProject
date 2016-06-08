@@ -63,8 +63,11 @@ public enum Focus implements Serializable {
         Focus result=null;
         switch (value){
             case "MUSCLE_GROWHT": result= Focus.MUSCLE_GROWHT;
+                break;
             case "STRENGTH_UP" : result= Focus.STRENGTH_UP;
+                break;
             case "FAT_OFF": result= Focus.FAT_OFF;
+                break;
         }
     return result;
     }

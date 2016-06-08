@@ -57,8 +57,11 @@ public static Exercise valueOfString(String value){
     Exercise result = null;
     switch (value){
         case "ARM": result = Exercise.ARM;
+            break;
         case "LEGS" : result = Exercise.LEGS;
+            break;
         case "BODY" : result = Exercise.BODY;
+            break;
     }
     return result;
 }

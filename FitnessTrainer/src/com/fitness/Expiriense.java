@@ -62,8 +62,11 @@ public enum Expiriense implements Serializable{
         Expiriense result=null;
         switch (value){
             case "BEGINNER": result= Expiriense.BEGINNER;
+                break;
             case "PROFESSIONAL" : result= Expiriense.PROFESSIONAL;
+                break;
             case "EXPERT": result= Expiriense.EXPERT;
+                break;
         }
         return result;
     }
