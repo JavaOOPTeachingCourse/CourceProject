@@ -171,24 +171,24 @@ public class FileUtils {
     private static List<Person> readPersons(BufferedReader reader) throws IOException {
         List<Person> result = new ArrayList<Person>();
         String line;
-        Person person = new Person();
+        Person person = null;
         while ((line = reader.readLine()) != null) {
 
             switch (checkTypeOfString(line)) {
                 case "Person":
                     person = addPerson(line,person);
-                    System.out.println("case person");
-                    System.out.println(person);
+                    //System.out.println("case person");
+                    //System.out.println(person);
                     break;
                 case "Exercise":
                     person = addExerciseToPerson(line, person);
-                    System.out.println("case exercise");
-                    System.out.println(person);
+                    //System.out.println("case exercise");
+                    //System.out.println(person);
                     break;
                 case "Statistic":
                     person = addStatisticToPerson(line, person);
-                    System.out.println("case statistic");
-                    System.out.println(person);
+                    //System.out.println("case statistic");
+                    //System.out.println(person);
                     break;
                 case "": result.add(person);
                     break;
@@ -202,12 +202,23 @@ public class FileUtils {
 
     private static Person addStatisticToPerson(String line, Person person) {
         String [] temp = parseStatistic(line);
-        List<Statistic> list = new ArrayList<Statistic>();
+        List<Statistic> list;
+        list = person.getStat();
+        if (list == null){
+            list = new ArrayList<Statistic>();
+            list.add(new Statistic()
+                    .setDateTime(Long.valueOf(temp[1]))
+                    .setTypeOfExercise(Exercise.valueOfString(temp[2]))
+                    .setExerciseWeight(Double.valueOf(temp[3]))
+                    .setExerciseCount(Integer.valueOf(temp[4])).setWork());
+        }
         list.add(new Statistic()
                 .setDateTime(Long.valueOf(temp[1]))
                 .setTypeOfExercise(Exercise.valueOfString(temp[2]))
                 .setExerciseWeight(Double.valueOf(temp[3]))
                 .setExerciseCount(Integer.valueOf(temp[4])).setWork());
+
+
         return person.setStat(list);
     }
 
@@ -215,14 +226,15 @@ public class FileUtils {
         String[] temp = parseExercise(line);
         List<Exercise> list = new ArrayList<Exercise>();
 
-        for (String s : temp) {
-            list.add(Exercise.valueOfString(s));
+        for (int i = 1; i < 4 ; i++) {
+            list.add(Exercise.valueOfString(temp[i]));
         }
         return person.setExercise(list);
     }
 
     private static Person addPerson(String line, Person person) {
         String[] temp = parsePerson(line);
+        person = new Person();
         person
                 .setName(temp[1])
                 .setWeight(Double.valueOf(temp[2]))
