@@ -127,7 +127,7 @@ public class StatisticPredicate {
         return new Predicate<Statistic>() {
             @Override
             public boolean test(Statistic statistic) {
-                return statistic.getExerciseWeight() < work;
+                return (statistic.getExerciseWeight()*statistic.getExerciseCount()) < work;
             }
         };
 
@@ -137,7 +137,7 @@ public class StatisticPredicate {
         return new Predicate<Statistic>() {
             @Override
             public boolean test(Statistic statistic) {
-                return statistic.getExerciseWeight() > work;
+                return (statistic.getExerciseWeight()*statistic.getExerciseCount()) > work;
             }
         };
 
